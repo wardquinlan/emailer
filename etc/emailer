@@ -1,0 +1,67 @@
+#!/bin/sh
+
+if [ "$JAVA_HOME" == "" ]; then
+  echo JAVA_HOME not defined
+  exit 1
+fi
+
+if [ "$EMAILER_HOME" == "" ]; then
+  echo EMAILER_HOME not defined
+  exit 1
+fi
+
+CLASSPATH=$EMAILER_HOME/emailer.d
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/emailer.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/commons-logging-1.1.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/log4j-1.2.14.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/mail.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-aop-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-aop-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-aop-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-aspects-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-aspects-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-aspects-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-beans-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-beans-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-beans-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-build-src-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-context-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-context-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-context-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-context-support-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-context-support-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-context-support-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-core-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-core-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-core-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-expression-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-expression-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-expression-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-instrument-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-instrument-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-instrument-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-instrument-tomcat-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-instrument-tomcat-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-instrument-tomcat-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-jdbc-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-jdbc-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-jdbc-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-jms-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-jms-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-jms-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-orm-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-orm-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-orm-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-oxm-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-oxm-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-oxm-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-struts-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-struts-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-struts-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-test-3.2.3.RELEASE.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-test-3.2.3.RELEASE-javadoc.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-test-3.2.3.RELEASE-sources.jar
+CLASSPATH=$CLASSPATH:$EMAILER_HOME/emailer.d/spring-tx-3.2.3.RELEASE.jar
+
+CMD="$JAVA_HOME/bin/java -classpath $CLASSPATH -Xmx128m -Demailer.from=wardquinlan@gmail.com -Demailer.to=wardquinlan@gmail.com -Demailer.host=smtp.gmail.com -Demailer.port=465 -Demailer.username=xxxxxxxxxx -Demailer.password='xxxxxxxxxx' -Demailer.subject='quote: update complete' emailer.Emailer $@"
+eval $CMD

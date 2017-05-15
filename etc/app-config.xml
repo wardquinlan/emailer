@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+		
+	<context:annotation-config/>
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" />
+	
+	<bean id="attachment" class="emailer.Attachment">
+		<property name="mimeType" value="text/plain" />
+		<property name="path" value="/home/ward/quote/CURRENT.txt" />
+	</bean>
+	
+	<bean id="content" class="emailer.Content">
+		<property name="mimeType" value="text/html" />
+		<property name="content">
+			<value>
+				<![CDATA[
+					The update is now complete - attached please find a copy of the update file
+				]]>
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="emailer" class="emailer.Emailer">
+		<property name="from" value="${emailer.from}" />
+		<property name="to">
+			<list>
+				<value>${emailer.to}</value>
+			</list>
+		</property>
+		<property name="subject" value="${emailer.subject}" />
+		<property name="content" ref="content" />
+		<property name="attachments">
+			<list>
+				<ref bean="attachment" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${emailer.host}" />
+		<property name="port" value="${emailer.port}" />
+		<property name="username" value="${emailer.username}" />
+		<property name="password" value="${emailer.password}" />
+	 
+		<property name="javaMailProperties">
+		   <props>
+	       	      <prop key="mail.smtp.auth">true</prop>
+	       	      <prop key="mail.smtp.starttls.enable">true</prop>
+	       	   </props>
+		</property>
+	</bean>
+	
+</beans>
